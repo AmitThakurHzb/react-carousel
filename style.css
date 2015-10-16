@@ -1,0 +1,19 @@
+#carousel {
+    background-color: #000;
+    margin: 0 auto;
+    width: 500px;
+    padding: 5px;
+    height: auto;
+}
+
+.carousel-inner {
+    height: 328px;
+}
+
+.carousel-indicators {
+    left: 75%;
+    width: auto;
+}
+body{
+  margin-top: 10%;
+}
