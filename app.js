@@ -18,7 +18,7 @@
         var curStatus = "",
           _this = this,
           items = this.props.list[0].items.map(function(item, i) {
-            (i===_this.state.selected)?(curStatus ="active"):(curStatus ="");
+            (i===_this.state.selected)?(curStatus ="activeSlide"):(curStatus ="");
             return (
               <div className= {"item "+curStatus} key={i}>
                 <img src={item.prodImgSrc} alt="..." />
@@ -42,6 +42,21 @@
           selected: index
       });
     },
+    changeSlide:function(){
+      var slideCount = (this.props.list[0].items.length)-1,
+          _this = this;
+
+      if(this.state.selected < (slideCount)){
+        this.setState({
+          selected: parseInt(_this.state.selected)+1
+        });
+      }
+      else{
+        this.setState({
+          selected: parseInt(_this.state.selected)-parseInt(slideCount)
+        });
+      }
+    },
 
     getInitialState: function() {
       return {
@@ -52,6 +67,9 @@
       this.setState({
         productlist: this.props.list
       });
+    },
+    componentDidMount: function () {
+      setInterval(this.changeSlide, 5000)
     },
 
     render: function(){
@@ -74,17 +92,17 @@
   [{
       activeSlide: 0,
       items: [{
-          prodImgSrc: "http://i.huffpost.com/gen/1448231/images/n-WORK-CLOTHES-large570.jpg",
+          prodImgSrc: "img/fullimage1.jpg",
           prodName: "Slide One"
 
       }, {
-          prodImgSrc: "http://images.medicaldaily.com/sites/medicaldaily.com/files/styles/full_breakpoints_theme_medicaldaily_desktop_1x/public/2015/07/05/nature.jpg",
+          prodImgSrc: "img/fullimage2.jpg",
           prodName: "Slide Two"
       }, {
-          prodImgSrc: "http://i.huffpost.com/gen/1448231/images/n-WORK-CLOTHES-large570.jpg",
+          prodImgSrc: "img/fullimage3.jpg",
           prodName: "Slide Three"
       }, {
-          prodImgSrc: "http://images.medicaldaily.com/sites/medicaldaily.com/files/styles/full_breakpoints_theme_medicaldaily_desktop_1x/public/2015/07/05/nature.jpg",
+          prodImgSrc: "img/fullimage4.jpg",
           prodName: "Slide four"
       }, ]
   }]

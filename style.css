@@ -1,19 +1,58 @@
 #carousel {
     background-color: #000;
     margin: 0 auto;
-    width: 500px;
+    width: 71%;
     padding: 5px;
     height: auto;
 }
 
 .carousel-inner {
-    height: 328px;
+    height: auto;
 }
 
 .carousel-indicators {
-    left: 75%;
+    left: 77%;
     width: auto;
 }
 body{
   margin-top: 10%;
+}
+
+.activeSlide {
+    display: block !important;
+    -webkit-animation-name: active; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    animation-name: active;
+    animation-duration: 4s;
+}
+.deactiveSlide {
+    display: block !important;
+    -webkit-animation-name: deactive; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    animation-name: deactive;
+    animation-duration: 4s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes active {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes active {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes deactive {
+     from {transform: translate3d(0px, 0px, 0px);}
+    to {transform: translate3d(-400px, 0px, 0px);}
+}
+
+/* Standard syntax */
+@keyframes deactive {
+    from {transform: translate3d(0px, 0px, 0px);}
+    to {transform: translate3d(-400px, 0px, 0px);}
 }
